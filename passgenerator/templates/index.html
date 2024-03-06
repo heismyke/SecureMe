@@ -1,0 +1,82 @@
+{% load static %} {% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+    {% compress css %}
+    <link
+      type="text/x-scss"
+      href="{% static 'passgenerator/style.scss' %}"
+      rel="stylesheet"
+      media="screen"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/bcf7712443.js"
+      crossorigin="anonymous"
+    ></script>
+    {% endcompress %}
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h1><span style="color: #dd2222">Secure</span>Me</h1>
+        <div class="logoImage"></div>
+      </div>
+    </nav>
+    <section class="form-area">
+      <div class="inner-form-area">
+        <div class="descriptive_text">
+          <h1>
+            Quickly create a strong, unique password using the SecureMe online
+            tool.
+          </h1>
+        </div>
+        <div class="generated_password">
+          <form action="">
+            <input type="text" class="generated_password_input" />
+            <div class="tools">
+              <button>
+                <i class="fa-solid fa-copy"></i>
+              </button>
+              <button>
+                <i class="fa-solid fa-rotate"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <form action="" id="pg-form">
+          <div class="header">
+            <h2>Customize your password</h2>
+          </div>
+          <div>
+            <div>
+              <label for="number">password length</label><br />
+              <input type="number" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <p>
+        Aptech project by Shekwolo Michael, Aninwachukwu Miracle Nicole,
+        Olugbenga Ogunsemowo
+      </p>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/bcf7712443.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
