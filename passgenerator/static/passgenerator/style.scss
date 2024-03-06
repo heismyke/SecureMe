@@ -177,7 +177,7 @@ nav {
         div {
           width: 50%;
           height: 200px;
-          //   background-color: yellow;
+          background-color: yellow;
           @include center_element();
           flex-direction: column;
         }
