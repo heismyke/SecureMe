@@ -43,8 +43,14 @@
           </h1>
         </div>
         <div class="generated_password">
-          <form action="">
-            <input type="text" class="generated_password_input" />
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input
+              type="text"
+              class="generated_password_input"
+              name="generated_password_input"
+    
+            />
             <div class="tools">
               <button>
                 <i class="fa-solid fa-copy"></i>
@@ -55,15 +61,27 @@
             </div>
           </form>
         </div>
-        <form action="" id="pg-form">
+        <form action="" id="pg-form" method="POST">
+          {% csrf_token %}
           <div class="header">
             <h2>Customize your password</h2>
           </div>
-          <div>
-            <div>
-              <label for="number">password length</label><br />
-              <input type="number" />
+          <div class="configurations">
+            <div class="password_length">
+              <label for="number">Password Length</label><br />
+              <input type="number" name="length" />
             </div>
+            <div class="ula">
+              <label><input type="checkbox" name="uppercase" />Uppercase</label>
+              <label><input type="checkbox" name="lowercase" />Lowercase</label>
+              <label><input type="checkbox" name="numbers" />Numbers</label>
+              <label
+                ><input type="checkbox" checked name="symbols" />Symbols</label
+              >
+            </div>
+          </div>
+          <div class="btn_div">
+            <button type="submit">Generate</button>
           </div>
         </form>
       </div>
