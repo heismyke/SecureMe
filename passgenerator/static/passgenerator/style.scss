@@ -109,7 +109,7 @@ nav {
       background-color: green;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      form {
+      div {
         display: flex;
         .generated_password_input {
           width: 85%;
@@ -137,6 +137,7 @@ nav {
           button {
             background-color: white;
             border: none;
+            cursor: pointer;
             i {
               color: #4f6175;
               font-size: 40px;

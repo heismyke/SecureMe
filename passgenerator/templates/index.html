@@ -43,23 +43,23 @@
           </h1>
         </div>
         <div class="generated_password">
-          <form action="" method="POST">
-            {% csrf_token %}
+          <div>
             <input
               type="text"
+              id="generated_text_input"
               class="generated_password_input"
-              name="generated_password_input"
-    
+              name="generated_text_input"
+              value="{{ thepass }}"
             />
             <div class="tools">
-              <button>
+              <button type="" id="copy" name="copy">
                 <i class="fa-solid fa-copy"></i>
               </button>
-              <button>
+              <button type=""  id="refresh"  name="regenerate">
                 <i class="fa-solid fa-rotate"></i>
               </button>
             </div>
-          </form>
+          </div>
         </div>
         <form action="" id="pg-form" method="POST">
           {% csrf_token %}
@@ -69,12 +69,26 @@
           <div class="configurations">
             <div class="password_length">
               <label for="number">Password Length</label><br />
-              <input type="number" name="length" />
+              <input type="number" name="length" value="12" />
             </div>
             <div class="ula">
-              <label><input type="checkbox" name="uppercase" />Uppercase</label>
-              <label><input type="checkbox" name="lowercase" />Lowercase</label>
-              <label><input type="checkbox" name="numbers" />Numbers</label>
+              <label
+                ><input
+                  type="checkbox"
+                  name="uppercase"
+                  checked
+                />Uppercase</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="lowercase"
+                  checked
+                />Lowercase</label
+              >
+              <label
+                ><input type="checkbox" name="numbers" checked />Numbers</label
+              >
               <label
                 ><input type="checkbox" checked name="symbols" />Symbols</label
               >
@@ -96,5 +110,6 @@
       src="https://kit.fontawesome.com/bcf7712443.js"
       crossorigin="anonymous"
     ></script>
+    <script src="{% static 'passgenerator/main.js' %}"></script>
   </body>
 </html>
