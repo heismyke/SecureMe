@@ -106,7 +106,6 @@ nav {
     .generated_password {
       width: 100%;
       height: 100px;
-      background-color: green;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       div {
@@ -144,6 +143,29 @@ nav {
               @include respond-to(phone) {
                 font-size: 40px;
               }
+            }
+          }
+        }
+      }
+      .progress {
+        width: 100%;
+        height: 10px;
+        background-color: lightgray;
+
+        .strength_indicator {
+          height: 10px;
+          animation: progressAnimation 0.7s linear forwards;
+          --progress-color: lightgray;
+          --progress-width: 0%;
+          @keyframes progressAnimation {
+            from {
+              width: 0%;
+              background-color: lightgray;
+            }
+
+            to {
+              width: var(--progress-width);
+              background-color: var(--progress-color);
             }
           }
         }
