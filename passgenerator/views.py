@@ -3,10 +3,27 @@ import random
 import string
 
 def get_random_string(length, allowed_chars):
+    # Generate a random string of specified length using the given set of characters.
+
+    # Args:
+    #     length (int): The length of the generated string.
+    #     allowed_chars (str): The set of characters from which the random string will be formed.
+
+    # Returns:
+    #     str: A random string of the specified length.
+     
     return ''.join(random.choices(allowed_chars, k=length))
 
 def home(request):
+    # Handle requests to the home page, processing form data to generate random passwords.
+
+    # Args:
+    #     request (HttpRequest): The HTTP request object.
+
+    # Returns:
+    #     HttpResponse: Rendered template with generated or custom password data.
     context = {}
+      # Process form submission data
     if request.method == 'POST':
         length = int(request.POST.get('length'))
         uppercase = request.POST.get('uppercase', False)
@@ -14,11 +31,11 @@ def home(request):
         numbers = request.POST.get('numbers', False)
         symbols = request.POST.get('symbols', False)
         custom_password = request.POST.get('custom_password', '')  
-
+      # Define character set based on form inputs
         if uppercase:
             custom_password = ''
             context['custom_password'] = custom_password
-            
+
         chars = list(string.ascii_lowercase)
         if uppercase:
             chars.extend(string.ascii_uppercase)
@@ -27,8 +44,9 @@ def home(request):
         if symbols:
             chars.extend("!@#$%^&*()_+-=}?<>")
             
-
+         # Generate or customize password based on form data
         if custom_password:
+             # Customize password if custom password is provided
             custom_chars = "!@#$%^&*()_+-=}?<>1234567890"
             word_list = custom_password.split()
             password_parts = []
@@ -47,6 +65,7 @@ def home(request):
             custom_password = ''.join(password_parts)
             context['custom_password'] = custom_password
         else:
+            # Generate random password if custom password is not provided
             password = ''.join(random.choice(chars) for i in range(length))
             context['generated_password'] = password  
 

@@ -130,9 +130,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+# Define the root directory for static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
-STATICFILES_FINDERS =( 'django.contrib.staticfiles.finders.FileSystemFinder',  'django.contrib.staticfiles.finders.AppDirectoriesFinder',    'compressor.finders.CompressorFinder',
+
+# Specify the finders used to locate static files
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',  # Find static files in the file system
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',  # Find static files in the app directories
+    'compressor.finders.CompressorFinder',  # Find compressed static files
 ) 
-COMPRESS_PRECOMPILERS = (    
-    ('text/x-scss', 'django_libsass.SassCompiler'),
+
+# Define precompilers for SCSS files
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),  # Compile SCSS files using django_libsass
 )
