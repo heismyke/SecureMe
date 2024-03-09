@@ -54,13 +54,13 @@ nav {
 
 .form-area {
   width: 100%;
-  height: 1000px;
+  height: 1200px;
   background-color: #ebe6eb;
   padding-top: 20px;
   @include respond-to(phone) {
     display: block;
     padding-top: 20px;
-    height: 1100px;
+    height: 1400px;
   }
   @include respond-to(tablet) {
     height: 1000px;
@@ -111,21 +111,25 @@ nav {
       div {
         display: flex;
         .generated_password_input {
-          width: 85%;
+          width: 90%;
           height: 90px;
           border: none;
           outline: none;
           font-size: 30px;
+
+          @include respond-to(phone) {
+            font-size: 20px;
+          }
           padding-left: 30px;
           font-family: 'JetBrains Mono', monospace;
           border-top-left-radius: 20px;
 
           @include respond-to(phone) {
-            width: 70%;
+            width: 90%;
           }
         }
         .tools {
-          width: 30%;
+          width: 10%;
           height: 90px;
           border: none;
           background-color: white;
@@ -141,7 +145,7 @@ nav {
               color: #4f6175;
               font-size: 40px;
               @include respond-to(phone) {
-                font-size: 40px;
+                font-size: 25px;
               }
             }
           }
@@ -150,35 +154,31 @@ nav {
       .progress {
         width: 100%;
         height: 10px;
-        background-color: lightgray;
+        background-color: lightgrey;
 
-        .strength_indicator {
+        .low {
+          background-color: #dd2222;
           height: 10px;
-          animation: progressAnimation 0.7s linear forwards;
-          --progress-color: lightgray;
-          --progress-width: 0%;
-          @keyframes progressAnimation {
-            from {
-              width: 0%;
-              background-color: lightgray;
-            }
-
-            to {
-              width: var(--progress-width);
-              background-color: var(--progress-color);
-            }
-          }
+        }
+        .medium {
+          background-color: yellow;
+          height: 10px;
+        }
+        .strong {
+          background-color: green;
+          height: 10px;
         }
       }
     }
+
     #pg-form {
       width: 100%;
-      height: 380px;
+      height: 730px;
       background-color: white;
       margin-top: 20px;
       border-radius: 20px;
       @include respond-to(phone) {
-        height: 550px;
+        height: 850px;
       }
       .header {
         width: 80%;
@@ -197,100 +197,158 @@ nav {
           }
         }
       }
-      .configurations {
+      .configurations_div {
         width: 80%;
-        height: 200px;
-        display: flex;
-
+        height: 250px;
         margin: auto;
+        // background-color: orange;
+
         @include respond-to(phone) {
-          height: 350px;
+          height: 400px;
           flex-direction: column;
         }
-        .password_length {
-          width: 50%;
-          height: 200px;
-          padding-top: 10px;
-          padding-left: 20px;
-          height: 120px;
-          @include respond-to(phone) {
-            width: 100%;
-            display: block;
-            padding-top: 10px;
-            padding-left: 20px;
-            height: 120px;
-          }
-          @include respond-to(tablet) {
-            width: 50%;
-            display: block;
-            padding-top: 10px;
-            padding-left: 20px;
-            height: 120px;
-          }
-          flex-direction: column;
-          label {
-            font-size: 15px;
-            font-family: 'JetBrains Mono', monospace;
-          }
-          input {
-            width: 130px;
-            height: 50px;
-            margin-top: 10px;
-            padding-left: 20px;
-            font-size: 15px;
-            border-radius: 10px;
-            border: 0.5px solid;
-          }
-        }
-        .ula {
-          width: 50%;
-          height: 200px;
+        .configurations {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: end;
-          gap: 30px;
+          // background-color: blue;
           @include respond-to(phone) {
-            align-items: start;
+            height: 400px;
+            flex-direction: column;
           }
-
-          label {
-            font-size: 15px;
-            font-family: 'JetBrains Mono', monospace;
-
+          .password_length {
+            width: 50%;
+            // background-color: gray;
+            height: 200px;
+            padding-top: 10px;
+            padding-left: 20px;
+            height: 120px;
+            @include respond-to(phone) {
+              width: 100%;
+              display: block;
+              padding-top: 10px;
+              padding-left: 0px;
+              height: 120px;
+            }
+            @include respond-to(tablet) {
+              width: 50%;
+              display: block;
+              padding-top: 10px;
+              padding-left: 20px;
+              height: 120px;
+            }
+            flex-direction: column;
+            label {
+              font-size: 20px;
+              font-family: 'JetBrains Mono', monospace;
+            }
             input {
-              margin-right: 10px;
-              width: 15px;
-              height: 15px;
-              accent-color: #dd2222;
+              width: 130px;
+              height: 50px;
+              margin-top: 10px;
+              padding-left: 20px;
+              font-size: 15px;
+              border-radius: 10px;
+              border: 0.5px solid;
             }
           }
-          @include respond-to(phone) {
-            width: 100%;
+          .ula {
+            width: 50%;
+            height: 200px;
+            display: flex;
+            // background-color: aqua;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+
+            gap: 30px;
+
+            @include respond-to(phone) {
+              padding-left: 20px;
+              align-items: start;
+            }
+
+            label {
+              font-size: 20px;
+              font-family: 'JetBrains Mono', monospace;
+              width: 40%;
+              @include center_element();
+              height: 30px;
+              @include respond-to(phone) {
+                width: 50%;
+              }
+              input {
+                margin-right: 10px;
+                width: 20px;
+                height: 20px;
+                accent-color: #dd2222;
+              }
+            }
+            @include respond-to(phone) {
+              width: 100%;
+            }
           }
         }
       }
-      .btn_div {
+      .thegenerated_password_div {
         width: 100%;
-        height: 50px;
+        height: 100px;
+        // background-color: #4f6175;
         @include center_element();
-        button {
-          width: 20%;
-          height: 50px;
-          border-radius: 10px;
-          border: none;
-          font-size: 15px;
-          background-color: #dd2222;
-          color: white;
-
-          @include respond-to(phone) {
-            width: 50%;
+        margin-top: 20px;
+        .thegenerated_password {
+          width: 90%;
+          height: 100px;
+          background-color: #ebe6eb;
+          border-radius: 20px;
+          @include center_element();
+          overflow-x: auto;
+          text-align: center;
+          p {
+            font-size: 4vh;
+            font-family: 'JetBrains Mono', monospace;
+            color: #4f6175;
           }
+        }
+      }
+    }
+    .copy_div {
+      width: 100%;
+      height: 50px;
+      // background-color: #4f6175;
+      margin-bottom: 10px;
+      @include center_element();
+      button {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        i {
+          font-size: 30px;
+          color: #4f6175;
+        }
+      }
+    }
+    .btn_div {
+      width: 100%;
+      height: 50px;
+      @include center_element();
+      button {
+        width: 20%;
+        height: 50px;
+
+        border: none;
+        font-size: 15px;
+        background-color: #dd2222;
+        color: white;
+
+        @include respond-to(phone) {
+          width: 50%;
         }
       }
     }
   }
 }
+
 footer {
   width: 100%;
   height: 50px;
@@ -299,6 +357,7 @@ footer {
   font-family: 'JetBrains Mono', monospace;
   @include respond-to(phone) {
     height: 100px;
+    padding: 30px;
   }
   @include respond-to(tablet) {
     height: 100px;
