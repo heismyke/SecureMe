@@ -1,0 +1,218 @@
+/* line 1, passgenerator/static/passgenerator/style.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* line 34, passgenerator/static/passgenerator/style.scss */
+nav {
+  width: 100%;
+  height: 50px;
+  border-bottom: 0.5px solid gray; }
+  /* line 39, passgenerator/static/passgenerator/style.scss */
+  nav .logo {
+    width: 10%;
+    height: 50px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px; }
+    @media only screen and (max-width: 600px) {
+      /* line 39, passgenerator/static/passgenerator/style.scss */
+      nav .logo {
+        width: 40%; } }
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+      /* line 39, passgenerator/static/passgenerator/style.scss */
+      nav .logo {
+        width: 20%; } }
+/* line 55, passgenerator/static/passgenerator/style.scss */
+.form-area {
+  width: 100%;
+  height: 1200px;
+  padding-top: 20px; }
+  @media only screen and (max-width: 600px) {
+    /* line 55, passgenerator/static/passgenerator/style.scss */
+    .form-area {
+      display: block;
+      padding-top: 20px;
+      height: 1400px; } }
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    /* line 55, passgenerator/static/passgenerator/style.scss */
+    .form-area {
+      height: 1000px;
+      display: block;
+      padding-top: 20px; } }
+  /* line 70, passgenerator/static/passgenerator/style.scss */
+  .form-area .inner-form-area {
+    width: 50%;
+    height: 900px;
+    border-radius: 20px;
+    margin: auto; }
+    @media only screen and (max-width: 600px) {
+      /* line 70, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area {
+        height: 900px;
+        width: 95%;
+        margin: auto; } }
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+      /* line 70, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area {
+        height: 800px;
+        width: 95%;
+        margin: auto; } }
+    /* line 86, passgenerator/static/passgenerator/style.scss */
+    .form-area .inner-form-area .descriptive_text {
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      @media only screen and (max-width: 600px) {
+        /* line 86, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .descriptive_text {
+          height: 300px; } }
+      /* line 94, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area .descriptive_text h1 {
+        font-size: 40px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 800; }
+        @media only screen and (max-width: 600px) {
+          /* line 94, passgenerator/static/passgenerator/style.scss */
+          .form-area .inner-form-area .descriptive_text h1 {
+            font-size: 30px; } }
+        @media only screen and (min-width: 601px) and (max-width: 900px) {
+          /* line 94, passgenerator/static/passgenerator/style.scss */
+          .form-area .inner-form-area .descriptive_text h1 {
+            font-size: 40px; } }
+    /* line 106, passgenerator/static/passgenerator/style.scss */
+    .form-area .inner-form-area .generated_password {
+      width: 100%;
+      height: 100px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px; }
+      /* line 111, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area .generated_password div {
+        display: flex; }
+        /* line 113, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .generated_password div .generated_password_input {
+          width: 90%;
+          height: 90px;
+          border: none;
+          outline: none;
+          font-size: 30px;
+          padding-left: 30px;
+          font-family: 'JetBrains Mono', monospace;
+          border-top-left-radius: 20px; }
+          @media only screen and (max-width: 600px) {
+            /* line 113, passgenerator/static/passgenerator/style.scss */
+            .form-area .inner-form-area .generated_password div .generated_password_input {
+              font-size: 20px; } }
+          @media only screen and (max-width: 600px) {
+            /* line 113, passgenerator/static/passgenerator/style.scss */
+            .form-area .inner-form-area .generated_password div .generated_password_input {
+              width: 90%; } }
+        /* line 131, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .generated_password div .tools {
+          width: 10%;
+          height: 90px;
+          border: none;
+          background-color: white;
+          border-top-right-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px; }
+          /* line 140, passgenerator/static/passgenerator/style.scss */
+          .form-area .inner-form-area .generated_password div .tools button {
+            background-color: white;
+            border: none;
+            cursor: pointer; }
+            /* line 144, passgenerator/static/passgenerator/style.scss */
+            .form-area .inner-form-area .generated_password div .tools button i {
+              color: #4f6175;
+              font-size: 40px; }
+              @media only screen and (max-width: 600px) {
+                /* line 144, passgenerator/static/passgenerator/style.scss */
+                .form-area .inner-form-area .generated_password div .tools button i {
+                  font-size: 25px; } }
+      /* line 154, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area .generated_password .progress {
+        width: 100%;
+        height: 10px;
+        background-color: lightgrey; }
+        /* line 159, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .generated_password .progress .low {
+          background-color: #dd2222;
+          height: 10px; }
+        /* line 163, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .generated_password .progress .medium {
+          background-color: yellow;
+          height: 10px; }
+        /* line 167, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .generated_password .progress .strong {
+          background-color: green;
+          height: 10px; }
+    /* line 173, passgenerator/static/passgenerator/style.scss */
+    .form-area .inner-form-area #pg-form {
+      width: 100%;
+      height: 700px;
+      background-color: #dd2222; }
+    /* line 179, passgenerator/static/passgenerator/style.scss */
+    .form-area .inner-form-area .copy_div {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      /* line 185, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area .copy_div button {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: none;
+        cursor: pointer; }
+        /* line 191, passgenerator/static/passgenerator/style.scss */
+        .form-area .inner-form-area .copy_div button i {
+          font-size: 30px;
+          color: #4f6175; }
+    /* line 197, passgenerator/static/passgenerator/style.scss */
+    .form-area .inner-form-area .btn_div {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      /* line 201, passgenerator/static/passgenerator/style.scss */
+      .form-area .inner-form-area .btn_div button {
+        width: 20%;
+        height: 50px;
+        border: none;
+        font-size: 15px;
+        background-color: #dd2222;
+        color: white; }
+        @media only screen and (max-width: 600px) {
+          /* line 201, passgenerator/static/passgenerator/style.scss */
+          .form-area .inner-form-area .btn_div button {
+            width: 50%; } }
+/* line 218, passgenerator/static/passgenerator/style.scss */
+footer {
+  width: 100%;
+  height: 60px;
+  background-color: #eef2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace; }
+  @media only screen and (max-width: 600px) {
+    /* line 218, passgenerator/static/passgenerator/style.scss */
+    footer {
+      height: 100px;
+      padding: 30px; } }
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    /* line 218, passgenerator/static/passgenerator/style.scss */
+    footer {
+      height: 100px; } }

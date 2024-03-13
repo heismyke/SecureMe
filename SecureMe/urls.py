@@ -20,13 +20,12 @@ from passgenerator import views
 from . import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-#we import our views from the passgenerator app so we can have access to the function home()
+
+# we import our views from the passgenerator app so we can have access to the function home()
 urlpatterns = [
     path("", views.home, name="home"),
 ]
 
 # Serve media files during development if DEBUG is True, otherwise use staticfiles_urlpatterns()
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-else:
-    urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

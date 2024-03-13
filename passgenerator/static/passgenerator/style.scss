@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 @mixin center_element {
@@ -54,32 +55,45 @@ nav {
 
 .form-area {
   width: 100%;
-  height: 1200px;
-  background-color: #ebe6eb;
+  height: 1300px;
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgba(219, 219, 219, 0.2) 0px,
+      rgba(219, 219, 219, 0.2) 1px,
+      transparent 1px,
+      transparent 21px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(219, 219, 219, 0.2) 0px,
+      rgba(219, 219, 219, 0.2) 1px,
+      transparent 1px,
+      transparent 21px
+    ),
+    linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
   padding-top: 20px;
   @include respond-to(phone) {
     display: block;
     padding-top: 20px;
-    height: 1400px;
+    height: 1300px;
   }
   @include respond-to(tablet) {
-    height: 1000px;
+    height: 1300px;
     display: block;
     padding-top: 20px;
   }
   .inner-form-area {
     width: 50%;
-    height: 900px;
-
+    height: 1200px;
     border-radius: 20px;
     margin: auto;
     @include respond-to(phone) {
-      height: 900px;
+      height: 1100px;
       width: 95%;
       margin: auto;
     }
     @include respond-to(tablet) {
-      height: 800px;
+      height: 1100px;
       width: 95%;
       margin: auto;
     }
@@ -103,209 +117,200 @@ nav {
         }
       }
     }
-    .generated_password {
-      width: 100%;
-      height: 100px;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      div {
-        display: flex;
-        .generated_password_input {
-          width: 90%;
-          height: 90px;
-          border: none;
-          outline: none;
-          font-size: 30px;
-
-          @include respond-to(phone) {
-            font-size: 20px;
-          }
-          padding-left: 30px;
-          font-family: 'JetBrains Mono', monospace;
-          border-top-left-radius: 20px;
-
-          @include respond-to(phone) {
-            width: 90%;
-          }
-        }
-        .tools {
-          width: 10%;
-          height: 90px;
-          border: none;
-          background-color: white;
-          border-top-right-radius: 20px;
-          @include center_element();
-          gap: 10px;
-
-          button {
-            background-color: white;
-            border: none;
-            cursor: pointer;
-            i {
-              color: #4f6175;
-              font-size: 40px;
-              @include respond-to(phone) {
-                font-size: 25px;
-              }
-            }
-          }
-        }
-      }
-      .progress {
-        width: 100%;
-        height: 10px;
-        background-color: lightgrey;
-
-        .low {
-          background-color: #dd2222;
-          height: 10px;
-        }
-        .medium {
-          background-color: yellow;
-          height: 10px;
-        }
-        .strong {
-          background-color: green;
-          height: 10px;
-        }
-      }
-    }
 
     #pg-form {
-      width: 100%;
-      height: 730px;
+      width: 70%;
+      height: 900px;
+      margin: auto;
       background-color: white;
-      margin-top: 20px;
-      border-radius: 20px;
+      border-radius: 40px;
+      border: 0.2px solid gray;
       @include respond-to(phone) {
-        height: 850px;
+        width: 100%;
       }
-      .header {
-        width: 80%;
-        height: 70px;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        padding-left: 20px;
-        border-bottom: 0.5px solid lightgray;
-        margin-bottom: 30px;
-        h2 {
-          font-family: 'JetBrains Mono', monospace;
-          font-weight: 500;
-          @include respond-to(phone) {
-            font-size: 18px;
-          }
-        }
+      @include respond-to(tablet) {
+        width: 75%;
       }
-      .configurations_div {
-        width: 80%;
-        height: 250px;
-        margin: auto;
-        // background-color: orange;
-
-        @include respond-to(phone) {
-          height: 400px;
-          flex-direction: column;
-        }
-        .configurations {
-          display: flex;
-          // background-color: blue;
-          @include respond-to(phone) {
-            height: 400px;
-            flex-direction: column;
-          }
-          .password_length {
-            width: 50%;
-            // background-color: gray;
-            height: 200px;
-            padding-top: 10px;
-            padding-left: 20px;
-            height: 120px;
+      @include center_element();
+      .inner-form {
+        width: 90%;
+        height: 700px;
+        // background-color: green;
+        // styling here
+        .parent-password-length {
+          width: 100%;
+          height: 130px;
+          // background-color: orange;
+          label {
+            font-size: 20px;
+            font-weight: 800;
             @include respond-to(phone) {
-              width: 100%;
-              display: block;
-              padding-top: 10px;
-              padding-left: 0px;
-              height: 120px;
-            }
-            @include respond-to(tablet) {
-              width: 50%;
-              display: block;
-              padding-top: 10px;
-              padding-left: 20px;
-              height: 120px;
-            }
-            flex-direction: column;
-            label {
-              font-size: 20px;
-              font-family: 'JetBrains Mono', monospace;
-            }
-            input {
-              width: 130px;
-              height: 50px;
-              margin-top: 10px;
-              padding-left: 20px;
-              font-size: 15px;
-              border-radius: 10px;
-              border: 0.5px solid;
+              font-size: 16px;
+              font-weight: 800;
             }
           }
-          .ula {
-            width: 50%;
-            height: 200px;
-            display: flex;
+          input {
+            width: 100%;
+            height: 50px;
+            margin-top: 5px;
+            outline: none;
+            padding-left: 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: 0.5px solid black;
+          }
+        }
+        // ends here
+        .uls {
+          width: 100%;
+          height: 170px;
+          // background-color: beige;
+          .character-type-text {
+            width: 100%;
+            height: 30px;
+            p {
+              font-size: 20px;
+              font-weight: 800;
+              @include respond-to(phone) {
+                font-size: 16px;
+                font-weight: 800;
+              }
+            }
+          }
+
+          .inner-uls {
+            width: 100%;
+            height: calc(150px - 30px);
             // background-color: aqua;
+            display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: end;
-
-            gap: 30px;
+            gap: 10px;
 
             @include respond-to(phone) {
-              padding-left: 20px;
-              align-items: start;
+              font-size: 16px;
             }
-
-            label {
-              font-size: 20px;
-              font-family: 'JetBrains Mono', monospace;
-              width: 40%;
-              @include center_element();
-              height: 30px;
-              @include respond-to(phone) {
-                width: 50%;
-              }
-              input {
-                margin-right: 10px;
-                width: 20px;
-                height: 20px;
-                accent-color: #dd2222;
-              }
-            }
-            @include respond-to(phone) {
-              width: 100%;
+            input {
+              margin-right: 10px;
+              font-size: 16px;
             }
           }
         }
-      }
-      .thegenerated_password_div {
-        width: 100%;
-        height: 100px;
-        // background-color: #4f6175;
-        @include center_element();
-        margin-top: 20px;
-        .thegenerated_password {
-          width: 90%;
+        .ambigiouText {
+          width: 100%;
           height: 100px;
-          background-color: #ebe6eb;
-          border-radius: 20px;
-          @include center_element();
-          overflow-x: auto;
-          text-align: center;
+          // background-color: brown;
+          display: flex;
+          align-items: center;
+          padding-top: 5px;
+          padding-bottom: 5p;
+
           p {
-            font-size: 4vh;
-            font-family: 'JetBrains Mono', monospace;
-            color: #4f6175;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            font-weight: 800;
+            input {
+              width: 20px;
+              height: 20px;
+              margin-top: 4px;
+            }
+            @include respond-to(phone) {
+              font-size: 16px;
+              font-weight: 800;
+            }
+          }
+        }
+        // second styling here
+        .Parent-Optional-words {
+          width: 100%;
+          height: 100px;
+          // background-color: rgb(255, 0, 93);
+          label {
+            font-size: 20px;
+            font-weight: 800;
+            @include respond-to(phone) {
+              font-size: 16px;
+              font-weight: 800;
+            }
+          }
+          input {
+            width: 100%;
+            height: 50px;
+            margin-top: 5px;
+            outline: none;
+            border: 0.5px solid black;
+            padding-left: 20px;
+            font-size: 16px;
+            border-radius: 20px;
+          }
+        }
+
+        // ends here
+
+        .button-container {
+          width: 100%;
+          height: 50px;
+          // background-color: red;
+          margin-top: 20px;
+
+          button {
+            width: 30%;
+            height: 50px;
+            background-color: #dd2222;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            @include respond-to(phone) {
+              width: 50%;
+            }
+          }
+        }
+        .password-strength-container {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          p {
+            font-weight: 800;
+            @include respond-to(phone) {
+              font-size: 16px;
+              font-weight: 800;
+            }
+          }
+        }
+        .generated-password-container {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          p {
+            font-weight: 800;
+            @include respond-to(phone) {
+              font-size: 16px;
+              font-weight: 800;
+            }
+          }
+        }
+        .button-container2 {
+          width: 100%;
+          height: 50px;
+          // background-color: red;
+          margin-top: 20px;
+          button {
+            width: 30%;
+            height: 50px;
+            background-color: #378ce7;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            @include respond-to(phone) {
+              width: 50%;
+            }
           }
         }
       }
@@ -338,8 +343,9 @@ nav {
 
         border: none;
         font-size: 15px;
-        background-color: #dd2222;
+        // background-color: #dd2222;
         color: white;
+        font-family: 'JetBrains Mono', monospace;
 
         @include respond-to(phone) {
           width: 50%;
@@ -352,7 +358,7 @@ nav {
 footer {
   width: 100%;
   height: 60px;
-  background-color: #eef2f5;
+  border-top: 0.5px solid gray;
   @include center_element();
   font-family: 'JetBrains Mono', monospace;
   @include respond-to(phone) {

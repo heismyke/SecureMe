@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-!hv-59-e)cf+l62xq@h&j5v!5+29!ry8bpj2k494%-y1n@j@g5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = "SecureMe.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "secureme",
+        "USER": "postgres",
+        "PASSWORD": "password123",
+        "HOST": "localhost",
+        "PORT": "5432"
     }
 }
 
@@ -131,7 +135,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Define the root directory for static files
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Specify the finders used to locate static files
 STATICFILES_FINDERS = (

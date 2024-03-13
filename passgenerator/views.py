@@ -2,6 +2,7 @@ from django.shortcuts import render
 import random
 import string
 
+
 def get_random_string(length, allowed_chars):
     # Generate a random string of specified length using the given set of characters.
 
@@ -11,8 +12,9 @@ def get_random_string(length, allowed_chars):
 
     # Returns:
     #     str: A random string of the specified length.
-     
+
     return ''.join(random.choices(allowed_chars, k=length))
+
 
 def home(request):
     # Handle requests to the home page, processing form data to generate random passwords.
@@ -23,18 +25,23 @@ def home(request):
     # Returns:
     #     HttpResponse: Rendered template with generated or custom password data.
     context = {}
-      # Process form submission data
+    # Process form submission data
     if request.method == 'POST':
         length = int(request.POST.get('length'))
         uppercase = request.POST.get('uppercase', False)
         lowercase = request.POST.get('lowercase', False)
         numbers = request.POST.get('numbers', False)
         symbols = request.POST.get('symbols', False)
-        custom_password = request.POST.get('custom_password', '')  
-      # Define character set based on form inputs
-        if uppercase:
-            custom_password = ''
-            context['custom_password'] = custom_password
+        custom_password = request.POST.get('custom_password', '')
+        print(length)
+        print(uppercase)
+        print(lowercase)
+        print(numbers)
+        print(symbols)
+        # Define character set based on form inputs
+        # if uppercase:
+        #     custom_password = ''
+        #     context['custom_password'] = custom_password
 
         chars = list(string.ascii_lowercase)
         if uppercase:
@@ -43,10 +50,10 @@ def home(request):
             chars.extend(string.digits)
         if symbols:
             chars.extend("!@#$%^&*()_+-=}?<>")
-            
-         # Generate or customize password based on form data
+
+        # Generate or customize password based on form data
         if custom_password:
-             # Customize password if custom password is provided
+            # Customize password if custom password is provided
             custom_chars = "!@#$%^&*()_+-=}?<>1234567890"
             word_list = custom_password.split()
             password_parts = []
@@ -59,14 +66,16 @@ def home(request):
                     half_length = len(random_chars) // 2
                     first_half = random_chars[:half_length]
                     second_half = random_chars[half_length:]
+                    first_half = first_half.upper()
                     password_parts.append(first_half + middle_chars + second_half)
                 else:
                     password_parts.append(word + random.choice(custom_chars))
             custom_password = ''.join(password_parts)
-            context['custom_password'] = custom_password
+            password = custom_password
+            context['generated_password'] = password
         else:
             # Generate random password if custom password is not provided
             password = ''.join(random.choice(chars) for i in range(length))
-            context['generated_password'] = password  
+            context['generated_password'] = password
 
-    return render(request, 'index.html',context)
+    return render(request, 'index.html', context)

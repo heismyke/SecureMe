@@ -1,178 +1,130 @@
 {% load static %} {% load compress %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SecureMe</title>
 
     <!-- Load fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
     />
 
     <!-- Load compressed CSS files -->
     {% compress css %}
     <link
-            type="text/x-scss"
-            href="{% static 'passgenerator/style.scss' %}"
-            rel="stylesheet"
-            media="screen"
+      type="text/x-scss"
+      href="{% static 'passgenerator/style.scss' %}"
+      rel="stylesheet"
+      media="screen"
     />
-
+    
     <!-- Load Font Awesome icons -->
     <script
-            src="https://kit.fontawesome.com/bcf7712443.js"
-            crossorigin="anonymous"
+      src="https://kit.fontawesome.com/bcf7712443.js"
+      crossorigin="anonymous"
     ></script>
     {% endcompress %}
-</head>
-<body>
-<!-- Navigation bar -->
-<nav>
-    <div class="logo">
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <nav>
+      <div class="logo">
         <h1><span style="color: #dd2222">Secure</span>Me</h1>
         <div class="logoImage"></div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- Form section for generating passwords -->
-<section class="form-area">
-    <div class="inner-form-area">
+    <!-- Form section for generating passwords -->
+    <section class="form-area">
+      <div class="inner-form-area">
         <!-- Description of the tool -->
         <div class="descriptive_text">
-            <h1>
-                Quickly create a strong, unique password using the SecureMe online
-                tool.
-            </h1>
+          <h1>
+            Quickly create a strong, unique password using the SecureMe online
+            tool.
+          </h1>
         </div>
 
         <!-- Password generation form -->
         <form action="" id="pg-form" method="POST">
-            {% csrf_token %}
-
-            <!-- Input field for entering custom password -->
-            <div class="generated_password">
-                <div>
-                    <input
-                            type="text"
-                            id="generated_text_input"
-                            class="generated_password_input"
-                            name="custom_password"
-                            value="{{custom_password}}"
-                            placeholder="Enter custom password"
-                    />
-                    <!-- Button to copy custom password -->
-                    <div class="tools">
-                        <button type="button" id="copy" name="copy">
-                            <i class="fa-solid fa-copy"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- Password strength indicator -->
-                <div class="progress">
-                    <div
-                            class="strength_indicator"
-                            role="progressbar"
-                            id="progress_bar"
-                            style="width: 0%"
-                            aria-valuenow="0"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                    ></div>
-                </div>
-                <!-- Text indicating password strength -->
-                <p
-                        id="password-strength-text"
-                        class="password-strength-text"
-                        style="color: dimgray"
+          {% csrf_token %}
+          <div class="inner-form">
+            <!-- first one you created -->
+            <div class="parent-password-length">
+              <label for="Length">Password Length:</label>
+              <input type="number" id="Length" name="length" value="12" />
+            </div>
+            <!-- ends here -->
+            <div class="uls">
+              <div class="character-type-text">
+                <p>Character Types:</p>
+              </div>
+              <div class="inner-uls">
+                <!-- Checkboxes for selecting password options -->
+                <label
+                  ><input type="checkbox" name="uppercase" />Uppercase</label
                 >
-                    Strength: <span class="password-strength-as-text"></span>
-                </p>
+                <label
+                  ><input type="checkbox" name="lowercase" />Lowercase</label
+                >
+                <label style="padding-right: 20px"
+                  ><input type="checkbox" name="numbers" />Numbers</label
+                >
+                <label style="padding-right: 20px"
+                  ><input type="checkbox" name="symbols" />Symbols</label
+                >
+              </div>
+            </div>
+            <div class="ambigiouText">
+              <p>Avoid Ambiguous Characters: <input type="checkbox" /></p>
+            </div>
+            <!-- start second here -->
+            <div class="Parent-Optional-words">
+              <label for="optionalWords">Optional Words:</label>
+              <input
+                type="text"
+                id="optionalWords"
+                name="custom_password"
+                placeholder="Enter password"
+              />
             </div>
 
-            <!-- Configuration options for password generation -->
-            <div class="header">
-                <h2>Customize your password</h2>
+            <!-- end here -->
+            <div class="button-container">
+              <button type="submit" id="generateBtn">Generate Password</button>
             </div>
-            <div class="configurations_div">
-                <div class="configurations">
-                    <div class="password_length">
-                        <label for="number">Password Length</label><br/>
-                        <input
-                                type="number"
-                                name="length"
-                                min="1"
-                                max="50"
-                                value="12"
-                        />
-                    </div>
-                    <div class="ula">
-                        <!-- Checkboxes for selecting password options -->
-                        <label
-                        ><input type="checkbox" name="uppercase"/>Uppercase</label
-                        >
-                        <label
-                        ><input type="checkbox" name="lowercase"/>Lowercase</label
-                        >
-                        <label style="padding-right: 20px"
-                        ><input type="checkbox" name="numbers"/>Numbers</label
-                        >
-                        <label style="padding-right: 20px"
-                        ><input type="checkbox" name="symbols"/>Symbols</label
-                        >
-                    </div>
-                </div>
+            <div class="password-strength-container">
+              <p>Password Strength: <span id="password-strength"></span></p>
             </div>
-
-            <!-- Display generated password -->
-            <div class="thegenerated_password_div">
-                <div class="thegenerated_password" id="thegenerated_password">
-                    <p id="generated_password">{{generated_password}}</p>
-                </div>
+            <div class="generated-password-container">
+              <p>
+                Generated Password:
+                <span id="generated_password_text">{{generated_password}}</span>
+              </p>
             </div>
-            <!-- Text indicating password strength -->
-            <p
-                    id="password-strength-text-2"
-                    class="password-strength-text"
-                    style="padding-left: 45px; color: dimgray"
-            >
-                Strength: <span class="password-strength-as-text"></span>
-            </p>
-
-            <!-- Button to copy generated password -->
-            <div class="copy_div">
-                <button type="button" id="copy_2">
-                    <i class="fa-solid fa-copy"></i>
-                </button>
+            <div class="button-container2">
+              <button type="button" id="copy">Copy to Clipboard</button>
             </div>
-
-            <!-- Button to generate password -->
-            <div class="btn_div">
-                <button type="submit">Generate</button>
-            </div>
+          </div>
         </form>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Footer section -->
-<footer>
-    <p>
+    <!-- Footer section -->
+    <footer>
+      <p>
         Aptech project by Shekwolo Michael, Aninwachukwu Miracle Nicole,
         Olugbenga Ogunsemowo
-    </p>
-</footer>
+      </p>
+    </footer>
 
-<!-- Load Font Awesome icons -->
-<script
-        src="https://kit.fontawesome.com/bcf7712443.js"
-        crossorigin="anonymous"
-></script>
+    <script src="{% static 'passgenerator/main.js' %}"></script>
 
-<!-- Load JavaScript file -->
-<script src="{% static 'passgenerator/main.js' %}"></script>
-</body>
+    <!-- Load JavaScript file -->
+  </body>
 </html>
