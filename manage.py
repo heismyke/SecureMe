@@ -17,6 +17,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-
+directory_to_check = '/var/task/staticfiles_build/static/'
+main(directory_to_check)
 if __name__ == "__main__":
     main()
