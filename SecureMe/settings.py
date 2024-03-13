@@ -135,7 +135,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Define the root directory for static files
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Specify the finders used to locate static files
