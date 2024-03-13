@@ -4,10 +4,7 @@ django-appconf==1.0.6
 django-compressor==4.4
 django-libsass==0.9
 libsass==0.23.0
-postgres==4.0
-psycopg2==2.9.9
 psycopg2-binary==2.9.9
-psycopg2-pool==1.2
 rcssmin==1.1.1
 rjsmin==1.2.1
 sqlparse==0.4.4
