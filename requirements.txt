@@ -5,6 +5,7 @@ django-compressor==4.4
 django-libsass==0.9
 libsass==0.23.0
 psycopg2-binary==2.9.9
+pytz==2024.1
 rcssmin==1.1.1
 rjsmin==1.2.1
 sqlparse==0.4.4
