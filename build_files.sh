@@ -1,16 +1,4 @@
-source venv/bin/activate
-
-
-set -e
-
-pip install -r requirements.txt
-if [[ $? -ne 0 ]]; then
-    exit 1
-fi
-
-python manage.py collectstatic
-if [[ $? -ne 0 ]]; then
-    exit 1
-fi
-
-# Other commands in your script
+echo "BUILD START"
+ python3.9 -m pip install -r requirements.txt
+ python3.9 manage.py collectstatic --noinput --clear
+ echo "BUILD END"
