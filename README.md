@@ -1,7 +1,7 @@
 # 🔐 SecureMe – Password Generator Web App
 
 **Project Type:** School Project  
-**Year:** 2025  
+**Year:** 2024  
 **Role:** Full-Stack Developer
 
 ---
